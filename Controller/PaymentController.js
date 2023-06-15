@@ -41,7 +41,7 @@ var expectedSignature = crypto.createHmac('sha256',RAZORPAY_SECRET_KEY).update(b
 console.log({expectedSignature})
 
 if(expectedSignature === req.body.response.razorpay_signature){
-    res.send({code:200,message:'fuck off 🖕 '})
+    res.send({code:200,message:'done'})
 }else{
     res.send({code:500,msg:'failed'})
 }
