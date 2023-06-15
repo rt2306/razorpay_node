@@ -13,14 +13,24 @@ const createOrder = async(req,res)=>{
         const amount = req.body.amount*100
         const option={
             amount :amount,
-            currency:'INR'
+            currency:'INR',
+            receipt:'razorUser@gmail.com'
         }
 
         razorpayInstance.orders.create(option,function (err,order){
             if(err){
               return res.send({code:500,message:'server error'})
             }else{
-               return res.send({code:200,message:'order created',data:order})
+               return res.send({code:200,message:'order created',
+            success:true,
+            amount:amount,
+            key_id:RAZORPAY_ID_KEY,
+            product_name:req.body.name,
+            description:'static description',
+            conatct:"709898989",
+            name:"static name",
+            email:"static@gmail.com"
+            })
             }
         })
 
